@@ -1,0 +1,125 @@
+﻿<Window x:Class="Notebook.UpdateNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notebook"
+        mc:Ignorable="d"
+           Title="Notebook" Height="507" Width="599" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid  HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="259*"/>
+            <ColumnDefinition Width="170*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="455*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Notebook" Grid.Row="0" Grid.Column="0" BorderBrush="#FF6D50BC"  FontSize="32" FontFamily="Comic Sans MS" Foreground="White" BorderThickness="0,0,0,1" Grid.ColumnSpan="3" Background="#FF6D50BC" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+
+        <Button x:Name="BExit" Content="Отмена" BorderThickness="0,0,0,0" Grid.Column="0" Grid.Row="2" FontSize="18" FontFamily="Comic Sans MS" Foreground="White" BorderBrush="#FFAFAAAA" Click="BExit_Click"    >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9A80E2" Offset="1"/>
+                    <GradientStop Color="#FF6D50BF" Offset="0.74"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="BUpdate" Content="Обновить" BorderThickness="0,0,0,0" Grid.Column="2" Grid.Row="2" FontSize="18" FontFamily="Comic Sans MS" Foreground="White" BorderBrush="#FFAFAAAA" Click="BUpdate_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9A80E2" Offset="1"/>
+                    <GradientStop Color="#FF6D50BF" Offset="0.74"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+         <Button x:Name="BDel" Content="Удалить" BorderThickness="0,0,0,0" Grid.Column="1" Grid.Row="2" FontSize="18" FontFamily="Comic Sans MS" Foreground="White" BorderBrush="#FFAFAAAA"  Margin="35,0,35,0" Click="BDel_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9A80E2" Offset="1"/>
+                    <GradientStop Color="#FF6D50BF" Offset="0.74"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        
+        <StackPanel Grid.Row="1"  Grid.Column="0"   >
+            <Label Content="Имя:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="Tname" Width="152"  HorizontalAlignment="Left" Height="22" FontSize="16" />
+            <Label Content="Фамилия:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="TSurname"  Width="150" HorizontalAlignment="Left" Height="22" FontSize="16" />
+            <Label Content="Отчество:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="TPatronomic" Width="150" HorizontalAlignment="Left" Height="22" FontSize="16" />
+
+            <Label Content="Дата рождения:" FontSize="18" FontFamily="Comic Sans MS" />
+            <WrapPanel >
+                <Label Content="Д" FontSize="18" FontFamily="Comic Sans MS" />
+                <TextBox x:Name="TDay" HorizontalAlignment="Center" Height="22" Width="35" Margin="0,0,10,0" FontSize="16" PreviewTextInput="TDay_PreviewTextInput"/>
+                <Label Content="М" FontSize="18" FontFamily="Comic Sans MS" />
+                <TextBox x:Name="TMonth" Width="35" HorizontalAlignment="Left" Height="22" FontSize="16" PreviewTextInput="TDay_PreviewTextInput"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Г" FontSize="18" FontFamily="Comic Sans MS" />
+                <TextBox x:Name="TYear" Width="109" HorizontalAlignment="Left" Height="22" FontSize="16" PreviewTextInput="TDay_PreviewTextInput"/>
+            </WrapPanel>
+            <Label Content="Пол:" FontSize="18" FontFamily="Comic Sans MS" />
+            <CheckBox x:Name="CMale" Margin="0,0,0,5" Content="Mужчина" FontSize="18" FontFamily="Comic Sans MS" Click="CMale_Click"  />
+            <CheckBox x:Name="CFemale" Content="Женщина" FontSize="18" FontFamily="Comic Sans MS" Click="CFemale_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"  Grid.Column="1">
+            <Label Content="Отношения:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="TRel" Width="160" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+            <Label Content="О человеке:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="TBio" Width="229" HorizontalAlignment="Left" Height="259" FontSize="16" TextWrapping="Wrap"/>
+        </StackPanel>
+
+
+
+
+
+        <StackPanel Grid.Row="1"  Grid.Column="2"   >
+            <Label Content="Телефон:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="TTelephone" Width="160" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+            <Label Content="Почта:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox x:Name="Tmail" Width="160" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+
+            <Label Content="Город:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox Width="160" x:Name="TCity" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+            <Label Content="Улица:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox Width="160" x:Name="TStreet" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+            <Label Content="Этаж:" FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox Width="160" x:Name="TFloor" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+            <Label Content="Номер квартиры:"  FontSize="18" FontFamily="Comic Sans MS" />
+            <TextBox Width="160" x:Name="TApNumber" HorizontalAlignment="Left" Height="22" FontSize="16"/>
+
+        </StackPanel>
+
+
+
+
+
+
+
+    </Grid>
+</Window>
